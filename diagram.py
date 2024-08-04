@@ -76,7 +76,7 @@ with Diagram("Life Science Shop Platform", show=False, direction="TB", filename=
     
     api >> sqs
     
-    # Monitoring, logging,  tracing    
+    # Monitoring, logging, tracing
     cloudwatch << Edge(style="dotted") << [eks, rds, cache, ddb, kinesis, emr, sqs]
     xray << Edge(style="dotted") << [api, auth]
 
