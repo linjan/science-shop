@@ -7,17 +7,7 @@ Includes: front end, RESTful API backend, database, authentication service, and 
 
 ![E-Commerce Platform Architecture](architecture.png)
 
-## Components
-
-# E-Commerce Platform Architecture
-
-## Overview
-
-This architecture uses AWS services to build a scalable, highly available, and secure e-commerce platform.
-
-![E-Commerce Platform Architecture](architecture.png)
-
-## Component Choices - why we chosed them
+## Component Choices - why we chose them
 
 * **CloudFront:** Global content delivery and handling traffic spikes.
 * **Application Load Balancer (ALB):** Distribute traffic evenly across EKS pods.
