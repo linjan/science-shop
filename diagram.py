@@ -59,3 +59,27 @@ with Diagram("Life Science Shop Platform", show=False, direction="TB", filename=
         cloudwatch = Cloudwatch("CloudWatch")
         config = Config("Config")
         xray = XRay("X-Ray")
+
+    # Finally, relationships    
+    cf >> alb
+    alb >> web
+    web >> api
+    api >> [rds, cache, ddb]
+    api >> auth
+    auth >> cognito
+    
+    api >> kinesis
+    kinesis >> lambda_fn
+    lambda_fn >> [emr, glue]
+    glue >> redshift
+    emr >> s3
+    
+    api >> sqs
+    
+    # Monitoring, logging,  tracing    
+    cloudwatch << Edge(style="dotted") << [eks, rds, cache, ddb, kinesis, emr, sqs]
+    xray << Edge(style="dotted") << [api, auth]
+
+    # Assess, audit, and evaluate the configurations of resources
+    config << Edge(style="dotted") << eks
+    
