@@ -44,3 +44,18 @@ with Diagram("Life Science Shop Platform", show=False, direction="TB", filename=
         
         cognito = Cognito("Cognito")
         secrets = SecretsManager("Secrets Manager")
+        
+        # Event processing
+        with Cluster("Real-time Data Processing"):
+            kinesis = Kinesis("Kinesis Data Streams")
+            lambda_fn = Lambda("Lambda")
+            emr = EMR("EMR")
+            glue = Glue("Glue")
+            redshift = Redshift("Redshift")
+        
+        s3 = S3("S3 Data Lake")
+        sqs = SQS("SQS")
+        
+        cloudwatch = Cloudwatch("CloudWatch")
+        config = Config("Config")
+        xray = XRay("X-Ray")
